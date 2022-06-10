@@ -14,5 +14,16 @@ pip install -r requirements.txt
 ```
 4. Run command:
 ```bash
-python3 main.py
+python3 app/main.py
+```
+
+## To run on docker:
+1. Go to the /sth/.../flask directory
+2. Run command:
+```bash
+docker build -t flask .
+```
+3. Run command:
+```bash
+docker run -d -p 80:80 flask
 ```
