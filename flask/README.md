@@ -1,5 +1,5 @@
 ## To run the app:
-1. Go to the /sth/.../flask directory
+1. Go to the *flask* directory
 2. Create virtual environment
 ```bash
 python3 -m venv venv
@@ -18,12 +18,12 @@ python3 app/main.py
 ```
 
 ## To run on docker:
-1. Go to the /sth/.../flask directory
+1. Go to the *flask* directory
 2. Run command:
 ```bash
-docker build -t flask .
+docker build -t spzc/flask .
 ```
 3. Run command:
 ```bash
-docker run -d -p 80:80 flask
+docker run -d -p 80:80 spzc/flask
 ```

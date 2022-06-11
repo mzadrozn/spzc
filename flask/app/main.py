@@ -10,19 +10,21 @@ app.config["DEBUG"] = True
 
 @app.route('/', methods=['GET'])
 def home() -> Dict[str, str]:
-    return {"message": "flask says hello"}
+    return {
+        "message": "flask says hello"
+    }
 
 
-@app.route('/short_request', methods=['GET'])
-def short_request() -> Dict[str, str]:
+@app.route('/short', methods=['GET'])
+def short() -> Dict[str, str]:
     return {
         "from": "flask",
         "message": "short request processed"
     }
 
 
-@app.route('//long_request', methods=['GET'])
-def long_request() -> Dict[str, str]:
+@app.route('/long', methods=['GET'])
+def long() -> Dict[str, str]:
     sleep(3.5)
     return {
         "from": "flask",
