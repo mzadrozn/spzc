@@ -21,7 +21,7 @@ uvicorn app.main:app --reload
 1. Go to the *fastApi* directory
 2. Run command:
 ```bash
-docker build -t fastapi .
+docker build -t spzc/fastapi .
 ```
 3. Run command:
 ```bash

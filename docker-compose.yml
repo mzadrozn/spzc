@@ -1,0 +1,53 @@
+version: '5'
+
+networks:
+  spzc:
+    driver: bridge
+    name: spzc
+
+services:
+  fastapi:
+    container_name: fastapi
+    image: spzc/fastapi
+    build:
+      dockerfile: Dockerfile
+      context: fastapi
+    restart: unless-stopped
+    networks:
+      - spzc
+
+  flask:
+    container_name: flask
+    image: spzc/flask
+    build:
+      dockerfile: Dockerfile
+      context: flask
+    restart: unless-stopped
+    networks:
+      - spzc
+
+  dotnet:
+    container_name: dotnet
+    image: spzc/dotnet
+    build:
+      dockerfile: Dockerfile
+      context: dotnetendpoint
+    restart: unless-stopped
+    networks:
+      - spzc
+
+  balancer:
+    container_name: balancer
+    image: spzc/balancer
+    build:
+      dockerfile: Dockerfile
+      context: balancer
+    depends_on:
+      - "fastapi"
+      - "flask"
+      - "dotnet"
+    restart: unless-stopped
+    networks:
+      - spzc
+    ports:
+      - 11180:80
