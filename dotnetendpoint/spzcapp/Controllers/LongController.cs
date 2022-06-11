@@ -19,7 +19,7 @@ namespace zzsnapp.Controllers
     public String Get()
     {
       Thread.Sleep(_sleepTime);
-      return ".NET long call";
+      return "{\"from\": \"dotnetAPI\", \"message\": \"long request processed\"}";
     }
   }
 }

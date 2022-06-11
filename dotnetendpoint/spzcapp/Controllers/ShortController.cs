@@ -18,7 +18,7 @@ namespace zzsnapp.Controllers
     [HttpGet(Name = "GetShort")]
     public String Get()
     {
-      return ".NET short call";
+      return "{\"from\": \"dotnetAPI\", \"message\": \"short request processed\"}";
     }
   }
 }
