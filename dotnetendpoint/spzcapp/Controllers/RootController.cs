@@ -17,7 +17,7 @@ namespace spzcapp.Controllers
     [HttpGet(Name = "Get")]
     public String Get()
     {
-      return "I'm alive - .NET API :)";
+      return "{\"message\": \"I'm alive - .NET API :)\"}";
     }
   }
 }
