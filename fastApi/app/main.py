@@ -7,19 +7,21 @@ app = FastAPI()
 
 @app.get("/")
 async def root() -> Dict[str, str]:
-    return {"message": "fastAPI says hello"}
+    return {
+        "message": "fastAPI says hello"
+    }
 
 
-@app.get("/short_request")
-async def short_request() -> Dict[str, str]:
+@app.get("/short")
+async def short() -> Dict[str, str]:
     return {
         "from": "fastAPI",
         "message": "short request processed"
     }
 
 
-@app.get("/long_request")
-async def long_request() -> Dict[str, str]:
+@app.get("/long")
+async def long() -> Dict[str, str]:
     sleep(3.5)
     return {
         "from": "fastAPI",
