@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["zzsnapp/zzsnapp.csproj", "zzsnapp/"]
-RUN dotnet restore "zzsnapp/zzsnapp.csproj"
+COPY ["spzcapp/spzcapp.csproj", "spzcapp/"]
+RUN dotnet restore "spzcapp/spzcapp.csproj"
 COPY . .
-WORKDIR "/src/zzsnapp"
-RUN dotnet build "zzsnapp.csproj" -c Release -o /app/build
+WORKDIR "/src/spzcapp"
+RUN dotnet build "spzcapp.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "zzsnapp.csproj" -c Release -o /app/publish
+RUN dotnet publish "spzcapp.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "zzsnapp.dll"]
+ENTRYPOINT ["dotnet", "spzcapp.dll"]
